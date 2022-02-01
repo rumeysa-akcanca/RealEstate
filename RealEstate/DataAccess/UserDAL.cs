@@ -43,7 +43,7 @@ namespace RealEstate.DataAccess
                ,[AddressID]
                ,[RoleID])
             VALUES
-           ( '{user.FullName}','{user.Email}','{user.Password}','{user.PhoneNumber}','{user.ProfilePicUrl}',{user.AddressID},{user.RoleID});";
+           ( '{user.FullName}','{user.Email}','{user.Password}','{user.PhoneNumber}','{user.ProfilePicUrl}',{user.AddressID},{user.RoleID}); SELECT CAST(scope_identity() AS int);";
             
             return DbTools.Connection.Create(query);
         }

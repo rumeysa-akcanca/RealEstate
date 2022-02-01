@@ -2,6 +2,7 @@
 
 @{
     Layout = null;
+    string photoUrl = "../../../UploadedFiles/User/" + Model.ProfilePicUrl;
 }
 
 <!DOCTYPE html>
@@ -10,12 +11,20 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
+
 </head>
 <body>
     <div>
         <h4>User</h4>
         <hr />
         <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("Fotoğraf")
+            </dt>
+
+            <dd>
+                <img src="@photoUrl" alt="@Model.FullName" style="height:180px;width:140px;" />
+            </dd>
             <dt>
                 @Html.DisplayNameFor(model => model.FullName)
             </dt>

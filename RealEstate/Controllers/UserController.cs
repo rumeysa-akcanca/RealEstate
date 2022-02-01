@@ -3,6 +3,7 @@ using RealEstate.DataAccess;
 using RealEstate.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -40,6 +41,8 @@ namespace RealEstate.Controllers
         {
             
             return View();
+
+
         }
 
         // POST: User/Create
@@ -49,7 +52,10 @@ namespace RealEstate.Controllers
             try
             {
                 // TODO: Add insert logic here
-                UserDAL.Methods.Insert(user);
+                var insertedID=UserDAL.Methods.Insert(user);
+                user.ID = Convert.ToInt32( insertedID);
+                FotoUpload(user);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -90,6 +96,19 @@ namespace RealEstate.Controllers
             var result = UserDAL.Methods.GetByID(id);
 
             return View(result);
+        }
+        [NonAction] // Bu metot controller acction'ı değildir.
+        private void FotoUpload(User user)
+        {
+            string userPath = Server.MapPath($"~/UploadedFiles/User/{user.ID }/");
+            if (!Directory.Exists(userPath))
+            {
+                Directory.CreateDirectory(userPath);
+            }
+            string fotoPath = Path.Combine(userPath, Path.GetFileName(user.ProfilePic.FileName));
+            user.ProfilePic.SaveAs(fotoPath);
+            user.ProfilePicUrl = user.ID + "/" + user.ProfilePic.FileName;
+            UserDAL.Methods.Update(user);
         }
 
         // POST: User/Delete/5
