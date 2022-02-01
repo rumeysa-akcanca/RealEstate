@@ -41,6 +41,7 @@ namespace RealEstate.Controllers
         // GET: AdvertResidential/Create
         public ActionResult Create()
         {
+
             return View();
         }
 

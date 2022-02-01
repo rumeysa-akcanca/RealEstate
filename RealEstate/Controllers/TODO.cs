@@ -11,7 +11,7 @@ namespace RealEstate.Controllers
         // TODO: Address:View
         // TODO: Layout template: Bootstrap.
 
-        // TODO:(İclal,Rümeysa) User: Controller,View,UserDAL(GetByID),View
+        // TODO:(İclal,Rümeysa) User: Controller,View,UserDAL(GetByID)
         // TODO:(Oğuzhan,Yusuf) Residential: ResidentialDAL,Controller,View,DB Table(excelde var)
         // TODO:(Selin,Nevruz) AdvertResidential: AdvertResidentialDAL,Controller,View,DB Table
         // TODO:(Sena,Furkan) Land: Model,Controller,View,LandDAL,View

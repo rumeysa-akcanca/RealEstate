@@ -1,0 +1,87 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ECR_EXCALIBUR_G770\\Documents\\GitHub\\RealEstate\\TestConsole\\TestConsole.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ECR_EXCALIBUR_G770\\Documents\\GitHub\\RealEstate\\RealEstate\\RealEstate.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ECR_EXCALIBUR_G770\\Documents\\GitHub\\RealEstate\\RealEstate\\RealEstate.csproj",
+        "projectName": "RealEstate",
+        "projectPath": "C:\\Users\\ECR_EXCALIBUR_G770\\Documents\\GitHub\\RealEstate\\RealEstate\\RealEstate.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\ECR_EXCALIBUR_G770\\Documents\\GitHub\\RealEstate\\TestConsole\\TestConsole.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ECR_EXCALIBUR_G770\\Documents\\GitHub\\RealEstate\\TestConsole\\TestConsole.csproj",
+        "projectName": "TestConsole",
+        "projectPath": "C:\\Users\\ECR_EXCALIBUR_G770\\Documents\\GitHub\\RealEstate\\TestConsole\\TestConsole.csproj",
+        "packagesPath": "C:\\Users\\ECR_EXCALIBUR_G770\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ECR_EXCALIBUR_G770\\Documents\\GitHub\\RealEstate\\TestConsole\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ECR_EXCALIBUR_G770\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\ECR_EXCALIBUR_G770\\Documents\\GitHub\\RealEstate\\RealEstate\\RealEstate.csproj": {
+                "projectPath": "C:\\Users\\ECR_EXCALIBUR_G770\\Documents\\GitHub\\RealEstate\\RealEstate\\RealEstate.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

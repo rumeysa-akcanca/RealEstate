@@ -10,13 +10,31 @@ namespace RealEstate.DataAccess
 {
     public class UserDAL
     {
+        private static UserDAL _Methods { get; set; }
+
+        public static UserDAL Methods
+        {
+            get
+            {
+                if (_Methods == null)
+                    _Methods = new UserDAL();
+                return _Methods;
+            }
+        }
+
+        public User GetByID(int  userId)
+        {
+            string query = $"SELECT * FROM Users WHERE ID={userId};";
+            
+            return ListUser(query)[0];
+        }
 
         public object Insert(User user)
         {
 
-            user.AddressID = Convert.ToInt32(AddressDAL.Methods.Insert(user.Address));
+            //user.AddressID = Convert.ToInt32(AddressDAL.Methods.Insert(user.Address));
             string query = $@"
-            INSERT INTO [dbo].[User]
+            INSERT INTO [dbo].[Users]
                ([FullName]
                ,[Email]
                ,[Password]
@@ -25,20 +43,20 @@ namespace RealEstate.DataAccess
                ,[AddressID]
                ,[RoleID])
             VALUES
-           ( '{user.FullName}','{user.Email}','{user.Password}','{user.PhoneNumber}','{user.ProfilePic}',{user.AddressID},{user.RoleID});";
+           ( '{user.FullName}','{user.Email}','{user.Password}','{user.PhoneNumber}','{user.ProfilePicUrl}',{user.AddressID},{user.RoleID});";
             
             return DbTools.Connection.Create(query);
         }
         public User Read(int userid)
         {
-            string query = $"SELECT * FROM User WHERE ID = {userid}";
+            string query = $"SELECT * FROM Users WHERE ID = {userid}";
             User usr = ListUser(query)[0];
             return usr;
         }
         public bool Update(User user)
         {
             string query = $@"
-                            UPDATE [dbo].[User]
+                            UPDATE [dbo].[Users]
                                SET [FullName] = '{user.FullName}'
                                   ,[Email] = '{user.Email}'
                                   ,[Password] = '{user.Password}'
@@ -52,13 +70,13 @@ namespace RealEstate.DataAccess
 
         public bool Delete(User user)
         {
-            string query = $@"DELETE FROM User WHERE ID={user.ID};";
+            string query = $@"DELETE FROM Users WHERE ID={user.ID};";
             return DbTools.Connection.Execute(query);
         }
 
         public List<User> List()
         {
-            string query = "SELECT * FROM User;";
+            string query = "SELECT * FROM Users;";
             return ListUser(query);
         }
 
@@ -67,8 +85,7 @@ namespace RealEstate.DataAccess
             List<User> users = new List<User>();
             SqlCommand cmd = new SqlCommand(query, DbTools.Connection.con);
             IDataReader reader;
-            try
-            {
+
                 DbTools.Connection.ConnectDB();
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -85,15 +102,9 @@ namespace RealEstate.DataAccess
                         ProfilePicUrl = reader["ProfilePicUrl"].ToString()
                     });
                 }
-            }
-            catch
-            {
-                Console.WriteLine("HATA OLUŞTU");
-            }
-            finally
-            {
+
                 DbTools.Connection.DisconnectDB();
-            }
+           
             return users;
         }
     }

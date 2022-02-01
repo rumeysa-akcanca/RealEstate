@@ -8,7 +8,7 @@ using RealEstate.ModelBase;
 
 namespace RealEstate.ModelBase
 {
-    interface IAdvert
+   public interface IAdvert
     {
         int AdvertiseID { get; set; }
         DateTime Date { get; set; }
@@ -16,6 +16,7 @@ namespace RealEstate.ModelBase
         string Title { get; set; }
         string Explaination { get; set; }
         User User { get; set; }
-        
+
+        double price { get; set; }
     }
 }

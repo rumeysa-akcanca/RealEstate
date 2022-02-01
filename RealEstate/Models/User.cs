@@ -25,7 +25,7 @@ namespace RealEstate.Models
             set
             {
                 this._AddressID = value;
-                this.Address = AddressDAL.Methods.GetByID(value);
+                //this.Address = AddressDAL.Methods.GetByID(value);
             } 
         }
         public Address Address { get; set; }
@@ -40,7 +40,7 @@ namespace RealEstate.Models
             set
             {
                 this._RoleID = value;
-                this.Role = RoleDAL.Methods.GetRoleByID(value);
+                //this.Role = RoleDAL.Methods.GetRoleByID(value);
                 //this.Role = DbTools.Connection.GetRoleByID(value);
             } 
         }
